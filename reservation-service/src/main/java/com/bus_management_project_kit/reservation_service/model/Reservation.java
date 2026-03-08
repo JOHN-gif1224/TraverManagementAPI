@@ -1,5 +1,7 @@
 package com.bus_management_project_kit.reservation_service.model;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,20 +20,23 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "reference")
+    private String reference;
+
     @Column(name = "utilisateurId")
     private String utilisateurId; // EMAIL ISSU JWT
 
     @Column(name = "trajetId")
     private String trajetId;
 
-    @Column(name = "numeroSiege")
-    private Integer numeroSiege;
+    @Column(name = "siegeNumero")
+    private Integer siegeNumero;
 
-    @Column(name = "statut")
-    private String statut; // EN_ATTENTE / CONFIRMÉE / ANNULLÉE
+    @Column(name = "statutReservation")
+    private String statutReservation; // EN_ATTENTE / CONFIRMÉE / ANNULLÉE
 
-    @Column(name = "cleIdempotence")
-    private String cleIdempotence;
+    @Column(name = "dateCreation")
+    private Date dateCreation;
 
     @Override
     public int hashCode() {

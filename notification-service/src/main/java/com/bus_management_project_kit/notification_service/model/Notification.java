@@ -1,5 +1,7 @@
 package com.bus_management_project_kit.notification_service.model;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,17 +15,20 @@ public class Notification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "reservationId")
-    private String reservationId;
+    @Column(name = "utilisateurId")
+    private String utilisateurId;
+
+    @Column(name = "typeNotification")
+    private String typeNotification;
 
     @Column(name = "message")
-    private String message;
+    private String message; //SMS, EMAIL
 
-    @Column(name = "canal")
-    private String canal; //SMS, EMAIL
+    @Column(name = "statutNotification")
+    private String stastatutNotification; // ENVOYÉ, ECHEC
 
-    @Column(name = "statut")
-    private String statut; // ENVOYÉ, ECHEC
+    @Column(name = "dateCreation")
+    private Date dateCreation;
 
     @Override
     public int hashCode() {

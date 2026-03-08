@@ -21,11 +21,17 @@ public class Paiement {
     @Column(name = "montant")
     private Integer montant;
 
-    @Column(name = "methode")
-    private String methode; // MOMO, CARTE
+    @Column(name = "moyen")
+    private String moyen; // MOMO, CARTE
 
     @Column(name = "statut")
     private String statut; // SUCCES, ECHEC
+
+    @Column(name = "referenceTransaction")
+    private String referenceTransaction;
+
+    @Column(name = "dateCreation")
+    private String dateCreation;
 
     @Override
     public int hashCode() {
@@ -51,7 +57,5 @@ public class Paiement {
             return false;
         return true;
     }
-
-    
 
 }
