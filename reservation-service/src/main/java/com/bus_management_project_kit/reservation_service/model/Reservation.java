@@ -9,12 +9,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"trajetId", "numeroSiege"}),
-    @UniqueConstraint(columnNames = {"cleIdempotence"})
+        @UniqueConstraint(columnNames = { "trajetId", "numeroSiege" }),
+        @UniqueConstraint(columnNames = { "cleIdempotence" })
 })
+
+@Getter
+@Setter
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,11 +28,14 @@ public class Reservation {
     @Column(name = "reference")
     private String reference;
 
+    @Column(name = "cleIdempotence")
+    private String cleIdempotence;
+
     @Column(name = "utilisateurId")
-    private String utilisateurId; // EMAIL ISSU JWT
+    private Long utilisateurId; // EMAIL ISSU JWT
 
     @Column(name = "trajetId")
-    private String trajetId;
+    private Long trajetId;
 
     @Column(name = "siegeNumero")
     private Integer siegeNumero;
